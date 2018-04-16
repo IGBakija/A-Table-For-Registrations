@@ -1,8 +1,8 @@
 table {
-	    font-family: arial, sans-serif;
-	    border-collapse: collapse;
-	    width: 100%;
-	}
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
 td, th {
     border: 1px solid #f4f2d7;
@@ -19,7 +19,7 @@ tbody > tr:hover {
 }
 
 table, form {
-	    margin: 20px;
+	margin: 20px;
 }
 
 th {
