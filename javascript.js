@@ -1,28 +1,22 @@
 $(document).ready(function()    {
 
-		function pad(number, length) { 
-    var str = String(number);
-    return (str.length >= length) ? str : ( new Array(length - str.length + 1).join('0') ) + str;
-}
-
-
+	function pad(number, length) { 
+	    var str = String(number);
+	    return (str.length >= length) ? str : ( new Array(length - str.length + 1).join('0') ) + str;
+	}
 
 	var url = "http://www.whateverorigin.org/get?url=" + encodeURIComponent("https://pastebin.com/raw/yziNg4ch")  + "&callback=?";
 	$.getJSON (url, function(response) {
 
 		var parsed = JSON.parse(response.contents);
-
-		console.log(jQuery.type(parsed));
-		console.log(parsed);
-
+		
 		var lista = parsed.registrations;
-		console.log(lista);
+
 		for (i = 0; i < lista.length; i++) {
 			$("<tr></tr>").appendTo("tbody");
 
 			$("<td></td>").appendTo("tr:last").text(lista[i].name);
 			$("<td></td>").appendTo("tr:last").text(lista[i].surname);
-
 
 			if (lista[i].sex === "female") {
 				spol = "Ž"
@@ -32,7 +26,6 @@ $(document).ready(function()    {
 			}
 
 			$("<td></td>").appendTo("tr:last").text(spol);
-
 			
 			function pad(number, length) { 
 			    var str = String(number);
@@ -59,9 +52,8 @@ $(document).ready(function()    {
 
 	});
 
-	var newPersons = []; 
-
 	$("#dodaj_novu_osobu").on("submit", function(event) {
+
  		event.preventDefault();
 		ime = $("#ime").val();
 		prezime = $("#prezime").val();
@@ -69,9 +61,11 @@ $(document).ready(function()    {
 
 		if (spolUnos === "zenski") {
 			spol = "Ž"
+			gender = "female"
 		}
 		else {
 			spol = "M"
+			gender = "male"
 		}
 
 		datum_rodjenja = $("#datum_rodjenja").val();
@@ -82,6 +76,7 @@ $(document).ready(function()    {
 		
 		prijava = $("#datum_prijave").val();
 		$prijava = prijava.split('-');
+		formatPrijave = $prijava[2]+'.'+$prijava[1]+'.'+$prijava[0]+'.';
 
 		$("<tr></tr>").appendTo("tbody");
 
@@ -90,9 +85,17 @@ $(document).ready(function()    {
 		$("<td></td>").appendTo("tr:last").text(spol);
 		$("<td></td>").appendTo("tr:last").text(dob);
 		$("<span></span>").appendTo("td:last").addClass("skriveno").text($datum_rodjenja);
-		$("<td></td>").appendTo("tr:last").text($prijava[2]+'.'+$prijava[1]+'.'+$prijava[0]+'.');
+		$("<td></td>").appendTo("tr:last").text(formatPrijave);
 
-		newPersons.push();
+		var osoba = {
+			"name": ime,
+			"surname": prezime,
+			"sex": gender,
+			"date_of_birth": $datum_rodjenja,
+			"date_of_registration": formatPrijave
+		};
+
+		noveOsobe.push(osoba);
 
 		displayBirthday();
 		document.getElementById("dodaj_novu_osobu").reset(); 
@@ -100,6 +103,12 @@ $(document).ready(function()    {
 
 	displayBirthday();
 	
+	$("#posalji_nove_zapise").on("click", function(event) {
+		var toString = JSON.stringify(noveOsobe);
+		console.log("Send me!")
+	})
+
+
 });
 
 //izvan main funkcije
@@ -120,4 +129,4 @@ function displayBirthday() {
 	);
 };
 
-
+var noveOsobe = []; 
