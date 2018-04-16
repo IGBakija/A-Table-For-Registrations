@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" > 
+		
+		<link type="text/css" rel="stylesheet" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="javascript.js"></script>
+		<title>Prijave za posao</title>
+</head>
+<body>
+	<div class="glavni_kontejner">
+	<form id="dodaj_novu_osobu">
+		<table class="colright">
+			<thead>
+				<tr>
+				    <th title="Ime osobe koja se prijavila za posao">Ime</th>
+				    <th title="Prezime osobe koja se prijavila za posao">Prezime</th>
+				    <th title="Spol osobe koja se prijavila za posao">Spol</th>
+				    <th title="Dob osobe koja se prijavila za posao">Dob</th>
+				    <th title="Datum slanja prijave za posao">Datum prijave</th>
+				</tr>
+		  	</thead>
+		  	<tfoot>
+		  		<tr>
+		  			<td>
+		  				<label for="ime">Ime:</label> <br>
+		  				<input type="text" id="ime" name="Ime" placeholder="Ime" autocomplete="off" required="required">
+		  			</td>
+		  			<td>
+		  				<label for="prezime">Prezime:</label> <br>
+		  				<input type="text" id="prezime" name="Prezime" placeholder="Prezime" autocomplete="off" required="required">
+		  			</td>
+		  			<td>
+		  				<label for="spol">Spol:</label> <br>
+		  				<select name="Spol" id="spol" autocomplete="off" required>
+							<option disabled selected value> -- izaberi spol -- </option>
+						    <option value="muski">Muški</option>
+						    <option value="zenski">Ženski</option>
+						</select>
+		  			</td>
+		  			<td>
+		  				<label for="datum_rodjenja" class="lijevo">Datum rođenja:</label> <br>
+		  				<input type="date" id="datum_rodjenja" class="lijevo pointer" name="datum_rodjenja" min="1940-01-01" max="2000-12-31" value="2000-01-01" autocomplete="off" required="required">
+		  			</td>
+		  			<td>
+		  			<label for="datum_prijave" class="lijevo">Datum prijave:</label> <br>
+		  				<input type="date" id="datum_prijave" class="lijevo pointer" name="datum_prijave" min="2017-12-31" autocomplete="off" required="required">
+		  				<input type="submit" name="nova_osoba" class="gumb"  value="Dodaj">
+		  			</td>
+		  		</tr>
+		  	</tfoot>
+		  	<tbody>
+			<!--	<tr>
+				    <td>Ante</td>
+				    <td>Žilić</td>
+				    <td>M</td>
+				    <td><span class="skriveno">21.05.1990.</span>23</td>
+				    <td>01.01.2018.</td>
+				</tr>
+				<tr>
+				    <td>Iva</td>
+				    <td>Veselić</td>
+				    <td>Ž</td>
+				    <td><span class="skriveno">05.07.1993.</span>25</td>
+				    <td>03.01.2018.</td>
+				</tr>
+				<tr>
+				    <td>Marko</td>
+				    <td>Marković</td>
+				    <td>M</td>
+				    <td><span class="skriveno">05.03.1997.</span>23</td>
+				    <td>17.03.2018.</td>
+				</tr>
+				<tr>
+				    <td>Ante</td>
+				    <td>Žilić</td>
+				    <td>M</td>
+				    <td><span class="skriveno">21.05.1990.</span>23</td>
+				    <td>01.01.2018.</td>
+				</tr>
+				<tr>
+				    <td>Iva</td>
+				    <td>Veselić</td>
+				    <td>Ž</td>
+				    <td><span class="skriveno">05.07.1993.</span>25</td>
+				    <td>03.01.2018.</td>
+				</tr>
+				<tr>
+				    <td>Marko</td>
+				    <td>Marković</td>
+				    <td>M</td>
+				    <td><span class="skriveno">05.03.1997.</span>23</td>
+				    <td>17.03.2018.</td>
+				</tr> -->
+		    </tbody>
+		</table>
+		</form>
+		<button name="nova_osoba" class="gumb" id="posalji_nove_zapise">Pošalji nove zapise</button>
+	</div>
+	<div class="new_content"></div>
+</body>
+</html>

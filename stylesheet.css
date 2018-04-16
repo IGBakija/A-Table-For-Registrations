@@ -1,0 +1,83 @@
+table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 100%;
+	}
+
+td, th {
+    border: 1px solid #f4f2d7;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2eec4;
+}
+
+tbody > tr:hover {
+	background-color: rgba(156, 191, 136, 0.3);
+}
+
+table, form {
+	    margin: 20px;
+}
+
+th {
+	background-color: #e8d4ab;
+}
+
+table.colright td:nth-child(4), td:nth-child(5) {
+	text-align: right;
+}
+
+select, .pointer {
+	cursor: pointer;
+}
+
+label {
+	color: #685F4D;
+}
+
+.glavni_kontejner {
+	width: 80%;
+    margin: auto;
+    min-width: 1000px;
+}
+
+.lijevo {
+	display: inline-block;
+	float: left;
+}
+
+.gumb {
+	background-color: #574726; 
+    border: none;
+    border-radius: 2px;
+    color: #f2eec4;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gumb:hover {
+	background-color: #6E512B;
+}
+
+#posalji_nove_zapise {
+	margin:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skriveno {
+	float: left;
+	display: none;
+}
+
+.hover {
+	display: inline;
+}
