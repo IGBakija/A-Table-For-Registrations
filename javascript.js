@@ -108,7 +108,6 @@ $(document).ready(function()    {
 		console.log("Send me!")
 	})
 
-
 });
 
 //izvan main funkcije
