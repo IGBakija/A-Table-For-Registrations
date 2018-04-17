@@ -55,8 +55,11 @@ $(document).ready(function()    {
 	$("#dodaj_novu_osobu").on("submit", function(event) {
 
  		event.preventDefault();
-		ime = $("#ime").val();
-		prezime = $("#prezime").val();
+		ime = $("#ime").val().toLowerCase();
+		$ime = ime[0].toUpperCase() + ime.substring(1);
+
+		prezime = $("#prezime").val().toLowerCase();
+		$prezime = prezime[0].toUpperCase() + prezime.substring(1);
 		spolUnos = $("#spol").val();
 
 		if (spolUnos === "zenski") {
@@ -80,16 +83,18 @@ $(document).ready(function()    {
 
 		$("<tr></tr>").appendTo("tbody");
 
-		$("<td></td>").appendTo("tr:last").text(ime);
-		$("<td></td>").appendTo("tr:last").text(prezime);
+		$("<td></td>").appendTo("tr:last");
+		$("<span></span>").appendTo("td:last").text($ime);
+		$("<td></td>").appendTo("tr:last");
+		$("<span></span>").appendTo("td:last").text($prezime);
 		$("<td></td>").appendTo("tr:last").text(spol);
 		$("<td></td>").appendTo("tr:last").text(dob);
 		$("<span></span>").appendTo("td:last").addClass("skriveno").text($datum_rodjenja);
 		$("<td></td>").appendTo("tr:last").text(formatPrijave);
 
 		var osoba = {
-			"name": ime,
-			"surname": prezime,
+			"name": $ime,
+			"surname": $prezime,
 			"sex": gender,
 			"date_of_birth": $datum_rodjenja,
 			"date_of_registration": formatPrijave
